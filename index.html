@@ -246,7 +246,7 @@ button.again{width:auto;min-width:240px;background:transparent;color:var(--pri);
 <script>
 (function () {
   // ====== PASTE YOUR GOOGLE APPS SCRIPT WEB APP URL HERE ======
-  var SCRIPT_URL = "https://script.google.com/macros/s/AKfycby8iKw_3dw6DnkCm6FvnXHzTFLy2kO43alGiMlw4DO8_-swKonkOeHWuPKwz1nMI5sI";
+  var SCRIPT_URL = "https://script.google.com/macros/s/AKfycby8iKw_3dw6DnkCm6FvnXHzTFLy2kO43alGiMlw4DO8_-swKonkOeHWuPKwz1nMI5sI/exec";
   // ============================================================
 
   var $ = function (id) { return document.getElementById(id); };
@@ -284,7 +284,7 @@ button.again{width:auto;min-width:240px;background:transparent;color:var(--pri);
     el.innerHTML = '<div class="ico">' + (type === "success" ? "✓" : "!") + '</div><div class="txt"><b></b><span></span></div><button type="button" aria-label="Close">×</button><i class="bar"></i>';
     el.querySelector("b").textContent = title;
     el.querySelector("span").textContent = msg;
-    var ms = type === "success" ? 7000 : 5500;
+    var ms = type === "success" ? 7000 : 8000;
     el.querySelector(".bar").style.animationDuration = ms + "ms";
     var timer = setTimeout(close, ms);
     function close() { clearTimeout(timer); if (el.parentNode) el.parentNode.removeChild(el); }
@@ -408,6 +408,24 @@ button.again{width:auto;min-width:240px;background:transparent;color:var(--pri);
       showThanks(payload.name, payload.email);
     }
 
+    function wait(ms) { return new Promise(function (r) { setTimeout(r, ms); }); }
+
+    // After a failed/unreadable reply, ask the server whether the application was saved anyway
+    // (matches on email, phone or student ID). Retries a few times in case the server is slow.
+    function verifySaved(triesLeft) {
+      var q = "action=check&email=" + encodeURIComponent(payload.email) +
+              "&phone=" + encodeURIComponent(payload.phone) +
+              "&sid=" + encodeURIComponent(payload.sid) + "&_=" + Date.now();
+      function again(result) { return triesLeft > 1 ? wait(1800).then(function () { return verifySaved(triesLeft - 1); }) : result; }
+      return api(q).then(function (chk) {
+        if (chk && chk.errors && (chk.errors.email || chk.errors.phone || chk.errors.sid)) return "saved";
+        return again("missing");
+      }).catch(function (e) {
+        console.warn("Verify check failed:", e);
+        return again("unknown");
+      });
+    }
+
     // text/plain body avoids a CORS preflight with Apps Script
     fetch(SCRIPT_URL, { method: "POST", body: JSON.stringify(payload) })
       .then(function (r) { return r.text(); })
@@ -429,15 +447,12 @@ button.again{width:auto;min-width:240px;background:transparent;color:var(--pri);
       })
       .catch(function (err) {
         console.error("Submit failed:", err, err && err.body);
-        // The response may be unreadable even though the data was saved: confirm with the server.
-        return api("action=check&email=" + encodeURIComponent(payload.email))
-          .then(function (chk) {
-            if (chk && chk.errors && chk.errors.email) success();
-            else notify("error", "Could not submit", "We could not reach the server. Please try again in a moment.");
-          })
-          .catch(function () {
-            notify("error", "Could not submit", "We could not reach the server. Please check your connection and try again.");
-          });
+        btn.textContent = "Confirming…";
+        return verifySaved(3).then(function (state) {
+          if (state === "saved") success();
+          else if (state === "missing") notify("error", "Could not submit", "Your application was not saved. Please try again in a moment.");
+          else notify("error", "We could not confirm your submission", "It may have been saved. Please check your email for a confirmation before submitting again, to avoid a duplicate.");
+        });
       })
       .then(done);
   });
