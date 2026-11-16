@@ -22,8 +22,8 @@
 <meta property="og:image:alt" content="Rajshahi Division Students Forum, SEU logo">
 <meta name="twitter:card" content="summary_large_image">
 <style>
-:root{box-sizing:border-box;--bg:#f3f7f4;--card:#fff;--ink:#14231a;--mut:#5b6b61;--line:#d5e0d9;--pri:#0f7a4a;--pri2:#0a5c37;--err:#c62828;--ok:#1b8a4f;--soft:#e4f3ea;--gap:clamp(12px,2vw,18px);--wm:.035;color-scheme:light}
-@media (prefers-color-scheme:dark){:root{--bg:#0e1612;--card:#16221b;--ink:#e8f2ec;--mut:#9bb0a3;--line:#2b3d33;--pri:#2fb877;--pri2:#23a066;--err:#ff7b7b;--ok:#5fd596;--soft:#1c3126;--wm:.03;color-scheme:dark}}
+:root{box-sizing:border-box;--bg:#f3f7f4;--card:#fff;--ink:#14231a;--mut:#5b6b61;--line:#d5e0d9;--pri:#0f7a4a;--pri2:#0a5c37;--err:#c62828;--ok:#1b8a4f;--soft:#e4f3ea;--gap:clamp(12px,2vw,18px);--wm:.05;color-scheme:light}
+@media (prefers-color-scheme:dark){:root{--bg:#0e1612;--card:#16221b;--ink:#e8f2ec;--mut:#9bb0a3;--line:#2b3d33;--pri:#2fb877;--pri2:#23a066;--err:#ff7b7b;--ok:#5fd596;--soft:#1c3126;--wm:.045;color-scheme:dark}}
 *,*::before,*::after{box-sizing:border-box}
 [hidden]{display:none!important}
 html{-webkit-text-size-adjust:100%;text-size-adjust:100%;scroll-padding-top:env(safe-area-inset-top,0px)}
@@ -52,8 +52,8 @@ header p{margin:0;opacity:.92;font-size:clamp(.85rem,.4vw + .78rem,1.05rem)}
 /* ---------- Layout / card ---------- */
 main{width:100%;max-width:760px;margin:clamp(-60px,-7vw,-40px) auto 0;padding:0 clamp(10px,3vw,24px) clamp(20px,4vw,32px);position:relative}
 .card{position:relative;isolation:isolate;overflow:hidden;background:var(--card);border:1px solid var(--line);border-radius:clamp(14px,2vw,20px);padding:clamp(16px,4vw,36px);box-shadow:0 8px 28px rgba(0,0,0,.09)}
-/* faint logo watermark behind the form (sits above the card background, below the fields) */
-.card::before{content:"";position:absolute;z-index:-1;right:-70px;bottom:-70px;width:clamp(220px,40vw,340px);aspect-ratio:1;background:url("logo.png") center/contain no-repeat;opacity:var(--wm);pointer-events:none}
+/* faint logo watermark centred behind the whole form (above the card background, below the fields) */
+.card::before{content:"";position:absolute;z-index:-1;inset:0;background:url("logo.png") center center/min(78%,480px) no-repeat;opacity:var(--wm);pointer-events:none}
 .brand{display:flex;align-items:center;gap:14px;padding-bottom:16px;margin-bottom:18px;border-bottom:1px solid var(--line)}
 .mark{flex:none;width:52px;height:52px;border-radius:50%;background:#fff;object-fit:cover;box-shadow:0 0 0 1px var(--line),0 4px 12px rgba(0,0,0,.12)}
 .brand b{display:block;font-size:clamp(1.02rem,.4vw + .95rem,1.2rem);line-height:1.25}
