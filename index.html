@@ -4,27 +4,70 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#0f7a4a">
-<title>Membership Form – Rajshahi Division Student Forum, SEU</title>
+<title>Membership Form – Rajshahi Division Students Forum, SEU</title>
+<meta name="description" content="Apply online for membership of Rajshahi Division Students Forum, SEU (Southeast University).">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="preload" as="image" href="logo.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Rajshahi Division Students Forum, SEU">
+<meta property="og:title" content="Membership Application – Rajshahi Division Students Forum, SEU">
+<meta property="og:description" content="Apply online for membership of Rajshahi Division Students Forum, SEU.">
+<meta property="og:url" content="https://rdsf-seu.vercel.app/">
+<meta property="og:image" content="https://rdsf-seu.vercel.app/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Rajshahi Division Students Forum, SEU logo">
+<meta name="twitter:card" content="summary_large_image">
 <style>
-:root{box-sizing:border-box;--bg:#f3f7f4;--card:#fff;--ink:#14231a;--mut:#5b6b61;--line:#d5e0d9;--pri:#0f7a4a;--pri2:#0a5c37;--err:#c62828;--ok:#1b8a4f;--soft:#e4f3ea;--gap:clamp(12px,2vw,18px);color-scheme:light}
-@media (prefers-color-scheme:dark){:root{--bg:#0e1612;--card:#16221b;--ink:#e8f2ec;--mut:#9bb0a3;--line:#2b3d33;--pri:#2fb877;--pri2:#23a066;--err:#ff7b7b;--ok:#5fd596;--soft:#1c3126;color-scheme:dark}}
+:root{box-sizing:border-box;--bg:#f3f7f4;--card:#fff;--ink:#14231a;--mut:#5b6b61;--line:#d5e0d9;--pri:#0f7a4a;--pri2:#0a5c37;--err:#c62828;--ok:#1b8a4f;--soft:#e4f3ea;--gap:clamp(12px,2vw,18px);--wm:.035;color-scheme:light}
+@media (prefers-color-scheme:dark){:root{--bg:#0e1612;--card:#16221b;--ink:#e8f2ec;--mut:#9bb0a3;--line:#2b3d33;--pri:#2fb877;--pri2:#23a066;--err:#ff7b7b;--ok:#5fd596;--soft:#1c3126;--wm:.03;color-scheme:dark}}
 *,*::before,*::after{box-sizing:border-box}
+[hidden]{display:none!important}
 html{-webkit-text-size-adjust:100%;text-size-adjust:100%;scroll-padding-top:env(safe-area-inset-top,0px)}
 body{margin:0;min-height:100vh;min-height:100dvh;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;line-height:1.5;padding-left:env(safe-area-inset-left,0px);padding-right:env(safe-area-inset-right,0px);overflow-wrap:anywhere}
-header{background:linear-gradient(135deg,#0a5c37,#0f7a4a);color:#fff;text-align:center;padding:calc(clamp(24px,5vw,56px) + env(safe-area-inset-top,0px)) 16px clamp(56px,8vw,88px)}
-header h1{margin:0 auto 6px;max-width:22ch;font-size:clamp(1.35rem,2.6vw + .9rem,2.4rem);line-height:1.2}
-header p{margin:0;opacity:.92;font-size:clamp(.9rem,.5vw + .8rem,1.1rem)}
-.badge{display:inline-block;background:rgba(255,255,255,.18);padding:3px 14px;border-radius:99px;font-size:.8rem;margin-bottom:10px}
-main{width:100%;max-width:760px;margin:clamp(-48px,-6vw,-32px) auto 0;padding:0 clamp(10px,3vw,24px) calc(32px + env(safe-area-inset-bottom,0px))}
-.card{background:var(--card);border:1px solid var(--line);border-radius:clamp(14px,2vw,20px);padding:clamp(16px,4vw,36px);box-shadow:0 8px 28px rgba(0,0,0,.09)}
-.sec{font-weight:600;color:var(--pri);margin:6px 0 14px;border-bottom:2px solid var(--soft);padding-bottom:6px;font-size:clamp(1rem,.4vw + .95rem,1.15rem)}
+
+/* ---------- Header (compact: logo on the side so the form is visible straight away) ---------- */
+header{position:relative;overflow:hidden;isolation:isolate;background:linear-gradient(135deg,#0a5c37 0%,#0f7a4a 60%,#12905a 100%);color:#fff;padding:calc(20px + env(safe-area-inset-top,0px)) 0 58px}
+header::before{content:"";position:absolute;z-index:-1;width:min(560px,100%);aspect-ratio:1;left:0;top:-70%;background:radial-gradient(circle,rgba(255,255,255,.18),rgba(255,255,255,0) 68%)}
+header::after{content:"";position:absolute;z-index:-1;inset:0;background:
+  radial-gradient(circle at 8% 120%,rgba(245,158,11,.2),transparent 36%),
+  radial-gradient(circle at 96% -20%,rgba(255,255,255,.12),transparent 34%)}
+.hwrap{max-width:760px;margin:0 auto;padding:0 clamp(18px,3vw,24px);display:grid;grid-template-columns:auto minmax(0,1fr);column-gap:14px;row-gap:12px;align-items:center;text-align:left}
+.logo{grid-column:1;grid-row:1;display:block;margin:0;width:clamp(76px,20vw,92px);height:auto;aspect-ratio:1/1;border-radius:50%;background:#fff;object-fit:cover;box-shadow:0 0 0 3px rgba(255,255,255,.3),0 0 0 7px rgba(255,255,255,.1),0 10px 24px rgba(0,0,0,.3)}
+.htext{grid-column:2;grid-row:1;min-width:0}
+.badge{display:inline-block;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.22);padding:2px 11px;border-radius:99px;font-size:.72rem;letter-spacing:.03em;margin-bottom:6px}
+header h1{margin:0 0 2px;font-size:clamp(1.1rem,2.2vw + .6rem,2.1rem);line-height:1.2;letter-spacing:-.01em}
+header p{margin:0;opacity:.92;font-size:clamp(.85rem,.4vw + .78rem,1.05rem)}
+.chips{grid-column:1/-1;grid-row:2;display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:0}
+.chip{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);padding:3px 12px;border-radius:99px;font-size:.78rem}
+.fbtn{display:inline-flex;align-items:center;gap:7px;background:#fff;color:#0a5c37;text-decoration:none;font-weight:600;font-size:.8rem;padding:4px 13px 4px 9px;border-radius:99px;box-shadow:0 2px 8px rgba(0,0,0,.18);-webkit-tap-highlight-color:transparent}
+.fbtn svg{flex:none;width:18px;height:18px}
+.flink{display:inline-flex;align-items:center;gap:6px;color:var(--pri);font-weight:600;font-size:.86rem;text-decoration:none}
+.flink svg{flex:none;width:16px;height:16px;fill:#1877f2}
+.flink:hover,.flink:focus-visible{text-decoration:underline}
+
+/* ---------- Layout / card ---------- */
+main{width:100%;max-width:760px;margin:clamp(-60px,-7vw,-40px) auto 0;padding:0 clamp(10px,3vw,24px) clamp(20px,4vw,32px);position:relative}
+.card{position:relative;isolation:isolate;overflow:hidden;background:var(--card);border:1px solid var(--line);border-radius:clamp(14px,2vw,20px);padding:clamp(16px,4vw,36px);box-shadow:0 8px 28px rgba(0,0,0,.09)}
+/* faint logo watermark behind the form (sits above the card background, below the fields) */
+.card::before{content:"";position:absolute;z-index:-1;right:-70px;bottom:-70px;width:clamp(220px,40vw,340px);aspect-ratio:1;background:url("logo.png") center/contain no-repeat;opacity:var(--wm);pointer-events:none}
+.brand{display:flex;align-items:center;gap:14px;padding-bottom:16px;margin-bottom:18px;border-bottom:1px solid var(--line)}
+.mark{flex:none;width:52px;height:52px;border-radius:50%;background:#fff;object-fit:cover;box-shadow:0 0 0 1px var(--line),0 4px 12px rgba(0,0,0,.12)}
+.brand b{display:block;font-size:clamp(1.02rem,.4vw + .95rem,1.2rem);line-height:1.25}
+.brand span{display:block;font-size:.84rem;color:var(--mut);margin-top:1px}
+.brand span i{color:var(--err);font-style:normal;font-weight:600}
+.sec{display:flex;align-items:center;gap:10px;font-weight:600;color:var(--pri);margin:6px 0 14px;border-bottom:2px solid var(--soft);padding-bottom:6px;font-size:clamp(1rem,.4vw + .95rem,1.15rem)}
+.sec em{flex:none;display:grid;place-items:center;width:24px;height:24px;border-radius:50%;background:var(--pri);color:#fff;font-style:normal;font-size:.78rem;font-weight:700}
 .sec.gap{margin-top:clamp(20px,3vw,30px)}
 .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--gap)}
 .f{display:flex;flex-direction:column;gap:4px;min-width:0}
 .f.full{grid-column:1/-1}
 label{font-size:.9rem;font-weight:500}
 label i{color:var(--err);font-style:normal}
-input,select{font:inherit;font-size:16px;min-height:48px;min-width:0;padding:11px 12px;border:1.5px solid var(--line);border-radius:10px;background:var(--bg);color:var(--ink);width:100%;max-width:100%;text-overflow:ellipsis;-webkit-appearance:none;appearance:none}
+input,select{font:inherit;font-size:16px;min-height:48px;min-width:0;padding:11px 12px;border:1.5px solid var(--line);border-radius:10px;background:var(--bg);color:var(--ink);width:100%;max-width:100%;text-overflow:ellipsis;-webkit-appearance:none;appearance:none;transition:border-color .15s,box-shadow .15s}
 select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%2373877b' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;padding-right:38px}
 input:focus-visible,select:focus-visible{outline:none;border-color:var(--pri);box-shadow:0 0 0 3px var(--soft)}
 .f.bad input,.f.bad select{border-color:var(--err)}
@@ -33,44 +76,76 @@ input:focus-visible,select:focus-visible{outline:none;border-color:var(--pri);bo
 .f.bad .msg{color:var(--err)}
 .f.good .msg{color:var(--ok)}
 .hp{position:absolute;left:-9999px;opacity:0;height:0;width:0}
-button.sub{display:block;margin:20px auto 0;width:100%;min-height:52px;padding:13px 24px;border:0;border-radius:12px;background:var(--pri);color:#fff;font:inherit;font-weight:600;font-size:1.05rem;cursor:pointer;-webkit-tap-highlight-color:transparent}
+button.sub,button.again{display:block;margin:20px auto 0;width:100%;min-height:52px;padding:13px 24px;border:0;border-radius:12px;background:var(--pri);color:#fff;font:inherit;font-weight:600;font-size:1.05rem;cursor:pointer;-webkit-tap-highlight-color:transparent;transition:background .15s,transform .05s}
+button.sub:active,button.again:active{transform:translateY(1px)}
 button.sub:disabled{opacity:.65;cursor:wait}
-.modal{position:fixed;inset:0;background:rgba(0,0,0,.55);display:none;align-items:center;justify-content:center;padding:16px;z-index:20;overflow-y:auto}
-.modal.on{display:flex}
-.box{background:var(--card);border-radius:18px;padding:clamp(20px,5vw,32px) clamp(18px,4vw,28px);max-width:400px;width:100%;max-height:calc(100dvh - 32px);overflow-y:auto;text-align:center;animation:pop .25s ease}
-@keyframes pop{from{transform:scale(.92);opacity:0}to{transform:scale(1);opacity:1}}
-.tick{width:64px;height:64px;border-radius:50%;background:var(--pri);color:#fff;font-size:34px;line-height:64px;margin:0 auto 12px}
-.box h2{margin:0 0 6px;font-size:1.3rem}
-.box p{margin:4px 0;color:var(--mut);font-size:.95rem}
-.box button{margin-top:16px;min-height:46px;padding:10px 32px;border:0;border-radius:10px;background:var(--pri);color:#fff;font:inherit;cursor:pointer}
-.toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--err);color:#fff;padding:10px 18px;border-radius:10px;font-size:.92rem;display:none;z-index:30;width:max-content;max-width:calc(100% - 28px);text-align:center}
+.secure{margin:12px 0 0;text-align:center;font-size:.8rem;color:var(--mut)}
+
+/* ---------- Thank-you panel ---------- */
+.thanks{text-align:center;padding-top:clamp(24px,5vw,44px);padding-bottom:clamp(24px,5vw,40px)}
+.thanks .tlogo{position:relative;width:clamp(96px,22vw,128px);margin:0 auto 18px}
+.thanks .tlogo img{display:block;width:100%;height:auto;aspect-ratio:1/1;border-radius:50%;background:#fff;object-fit:cover;box-shadow:0 0 0 1px var(--line),0 10px 26px rgba(0,0,0,.18)}
+.thanks .tick{position:absolute;right:-4px;bottom:-2px;width:36px;height:36px;border-radius:50%;background:var(--ok);color:#fff;display:grid;place-items:center;font-size:20px;font-weight:700;box-shadow:0 0 0 4px var(--card)}
+.thanks h2{margin:0 0 8px;font-size:clamp(1.3rem,1.4vw + 1rem,1.7rem);line-height:1.25;color:var(--pri)}
+.thanks p{margin:0 auto 6px;max-width:46ch;color:var(--mut)}
+.thanks p:has(.flink){margin-top:14px}
+.thanks p strong{color:var(--ink)}
+.thanks:focus{outline:none}
+button.again{width:auto;min-width:240px;background:transparent;color:var(--pri);border:1.5px solid var(--pri);margin-top:22px}
+
+/* ---------- Footer ---------- */
+.foot{display:flex;align-items:center;justify-content:center;gap:12px;text-align:left;max-width:760px;margin:0 auto;padding:6px clamp(10px,3vw,24px) calc(32px + env(safe-area-inset-bottom,0px))}
+.foot img{flex:none;width:40px;height:40px;border-radius:50%;background:#fff;box-shadow:0 0 0 1px var(--line)}
+.foot b{display:block;font-size:.88rem;line-height:1.3}
+.foot span{display:block;font-size:.78rem;color:var(--mut)}
+.foot .flink{margin-top:2px;font-size:.78rem}
+
+/* ---------- Toasts ---------- */
+.toasts{position:fixed;z-index:40;top:calc(14px + env(safe-area-inset-top,0px));right:calc(14px + env(safe-area-inset-right,0px));width:min(390px,calc(100% - 28px));display:flex;flex-direction:column;gap:10px;pointer-events:none}
+.note{pointer-events:auto;position:relative;overflow:hidden;display:flex;gap:12px;align-items:flex-start;background:var(--card);color:var(--ink);border:1px solid var(--line);border-left:5px solid var(--ok);border-radius:12px;padding:14px 40px 17px 14px;box-shadow:0 12px 32px rgba(0,0,0,.25);animation:slidein .3s ease}
+.note.error{border-left-color:var(--err)}
+.note .ico{flex:none;width:30px;height:30px;border-radius:50%;background:var(--ok);color:#fff;display:grid;place-items:center;font-weight:700}
+.note.error .ico{background:var(--err)}
+.note b{display:block;font-size:.98rem;line-height:1.3}
+.note span{display:block;font-size:.86rem;color:var(--mut);margin-top:2px}
+.note button{position:absolute;top:4px;right:6px;min-width:34px;min-height:34px;border:0;background:transparent;color:var(--mut);font-size:22px;line-height:1;cursor:pointer}
+.note .bar{position:absolute;left:0;bottom:0;height:3px;width:100%;background:var(--ok);transform-origin:left;animation:shrink linear forwards}
+.note.error .bar{background:var(--err)}
+@keyframes slidein{from{transform:translateX(28px);opacity:0}to{transform:none;opacity:1}}
+@keyframes shrink{to{transform:scaleX(0)}}
+@keyframes pop{from{transform:scale(.92);opacity:0}to{transform:none;opacity:1}}
+.thanks:not([hidden]){animation:pop .35s ease}
 
 /* Phones: single column */
 @media (max-width:599px){
   .grid{grid-template-columns:minmax(0,1fr)}
   .f.full{grid-column:auto}
+  .mark{width:46px;height:46px}
 }
-/* Tablets and up: submit button no longer full width */
+/* Tablets and up: buttons no longer full width */
 @media (min-width:600px){
   button.sub{width:auto;min-width:260px}
 }
+/* Logo on the left, text + chips on the right */
+@media (min-width:700px){
+  header{padding-top:28px;padding-bottom:78px}
+  .hwrap{column-gap:28px;row-gap:14px}
+  .logo{grid-row:1 / span 2;width:128px;box-shadow:0 0 0 4px rgba(255,255,255,.3),0 0 0 9px rgba(255,255,255,.1),0 14px 30px rgba(0,0,0,.32)}
+  .chips{grid-column:2;grid-row:2}
+  .badge{font-size:.78rem;padding:3px 13px;margin-bottom:8px}
+}
 /* Small laptops / large tablets */
 @media (min-width:900px){
-  main{max-width:840px}
+  main,.foot,.hwrap{max-width:840px}
 }
 /* Desktops */
 @media (min-width:1200px){
-  main{max-width:920px}
-  header h1{max-width:none}
-}
-/* Short landscape phones */
-@media (max-height:480px) and (orientation:landscape){
-  header{padding-top:calc(16px + env(safe-area-inset-top,0px));padding-bottom:56px}
-  .tick{width:48px;height:48px;line-height:48px;font-size:26px}
+  main,.foot,.hwrap{max-width:920px}
 }
 /* Mouse devices only */
 @media (hover:hover){
-  button.sub:hover,.box button:hover{background:var(--pri2)}
+  button.sub:hover{background:var(--pri2)}
+  button.again:hover{background:var(--soft)}
 }
 @media (prefers-reduced-motion:reduce){
   *{animation:none!important;transition:none!important}
@@ -79,25 +154,40 @@ button.sub:disabled{opacity:.65;cursor:wait}
 </head>
 <body>
 <header>
-  <div class="badge">Southeast University</div>
-  <h1>Rajshahi Division Student Forum, SEU</h1>
-  <p>Membership Application Form</p>
+  <div class="hwrap">
+    <img class="logo" src="logo.png" width="128" height="128" alt="Rajshahi Division Students Forum, SEU logo" fetchpriority="high" decoding="async">
+    <div class="htext">
+      <div class="badge">Southeast University</div>
+      <h1>Rajshahi Division Students Forum, SEU</h1>
+      <p>Membership Application Form</p>
+    </div>
+    <div class="chips" aria-label="About the forum">
+      <span class="chip">8 Districts</span>
+      <span class="chip">Since 2026</span>
+      <a class="fbtn" href="https://www.facebook.com/profile.php?id=61594226404207" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#1877f2" d="M24 12.07C24 5.4 18.63 0 12 0S0 5.4 0 12.07C0 18.1 4.39 23.1 10.13 24v-8.44H7.08v-3.49h3.05V9.41c0-3.02 1.79-4.7 4.53-4.7 1.31 0 2.69.24 2.69.24v2.97h-1.52c-1.49 0-1.96.93-1.96 1.89v2.26h3.33l-.53 3.49h-2.8V24C19.61 23.1 24 18.1 24 12.07z"/></svg>Official Facebook Page</a>
+    </div>
+  </div>
 </header>
 
 <main>
   <form class="card" id="form" novalidate autocomplete="off">
-    <div class="sec">Personal Information</div>
+    <div class="brand">
+      <img class="mark" src="logo.png" width="52" height="52" alt="" decoding="async">
+      <div><b>Become a Member</b><span>Takes about two minutes. Fields marked <i>*</i> are required.</span></div>
+    </div>
+
+    <div class="sec"><em>1</em>Personal Information</div>
     <div class="grid">
       <div class="f full"><label for="name">Full Name <i>*</i></label><input id="name" maxlength="60" placeholder="Your full name" autocomplete="name"><div class="msg"></div></div>
       <div class="f"><label for="email">Email Address <i>*</i></label><input id="email" type="email" maxlength="100" placeholder="example@gmail.com" autocomplete="email"><div class="msg"></div></div>
       <div class="f"><label for="phone">Phone Number <i>*</i></label><input id="phone" type="tel" inputmode="numeric" maxlength="14" placeholder="01XXXXXXXXX" autocomplete="tel"><div class="msg"></div></div>
       <div class="f"><label for="gender">Gender</label>
-        <select id="gender"><option value="">Select (optional)<option>Male</option><option>Female</option></select><div class="msg"></div></div>
+        <select id="gender"><option value="">Select (optional)</option><option>Male</option><option>Female</option></select><div class="msg"></div></div>
       <div class="f"><label for="blood">Blood Group</label>
         <select id="blood"><option value="">Select (optional)</option><option>A+</option><option>A-</option><option>B+</option><option>B-</option><option>AB+</option><option>AB-</option><option>O+</option><option>O-</option></select><div class="msg"></div></div>
     </div>
 
-    <div class="sec gap">Address (Rajshahi Division)</div>
+    <div class="sec gap"><em>2</em>Address (Rajshahi Division)</div>
     <div class="grid">
       <div class="f"><label for="district">District <i>*</i></label>
         <select id="district"><option value="">Select district</option>
@@ -106,7 +196,7 @@ button.sub:disabled{opacity:.65;cursor:wait}
       <div class="f"><label for="upazila">Upazila / Thana</label><input id="upazila" maxlength="60" placeholder="Your upazila"><div class="msg"></div></div>
     </div>
 
-    <div class="sec gap">Southeast University Information</div>
+    <div class="sec gap"><em>3</em>Southeast University Information</div>
     <div class="grid">
       <div class="f"><label for="sid">Student ID <i>*</i></label><input id="sid" inputmode="numeric" maxlength="13" placeholder="13-digit student ID"><div class="msg"></div></div>
       <div class="f"><label for="dept">Department <i>*</i></label>
@@ -130,28 +220,46 @@ button.sub:disabled{opacity:.65;cursor:wait}
 
     <input class="hp" id="website" name="website" tabindex="-1" aria-hidden="true" autocomplete="off">
     <button class="sub" id="btn" type="submit">Submit Application</button>
+    <p class="secure">Your information is used only for forum membership.</p>
   </form>
+
+  <section class="card thanks" id="thanks" tabindex="-1" aria-live="polite" hidden>
+    <div class="tlogo">
+      <img src="logo.png" width="128" height="128" alt="Rajshahi Division Students Forum, SEU logo" decoding="async">
+      <span class="tick" aria-hidden="true">&#10003;</span>
+    </div>
+    <h2>Application received!</h2>
+    <p>Thank you, <strong id="thanksName"></strong>. Your membership application has been submitted successfully.</p>
+    <p>A confirmation email has been sent to <strong id="thanksMail"></strong>. Our team will contact you soon.</p>
+    <p><a class="flink" href="https://www.facebook.com/profile.php?id=61594226404207" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M24 12.07C24 5.4 18.63 0 12 0S0 5.4 0 12.07C0 18.1 4.39 23.1 10.13 24v-8.44H7.08v-3.49h3.05V9.41c0-3.02 1.79-4.7 4.53-4.7 1.31 0 2.69.24 2.69.24v2.97h-1.52c-1.49 0-1.96.93-1.96 1.89v2.26h3.33l-.53 3.49h-2.8V24C19.61 23.1 24 18.1 24 12.07z"/></svg>Follow our official Facebook page</a></p>
+    <button class="again" id="again" type="button">Submit another application</button>
+  </section>
 </main>
 
-<div class="modal" id="modal" role="dialog" aria-modal="true"><div class="box">
-  <div class="tick">✓</div>
-  <h2>Form submitted successfully!</h2>
-  <p id="mname"></p>
-  <p>A confirmation email has been sent to your inbox.</p>
-  <button id="ok" type="button">Done</button>
-</div></div>
-<div class="toast" id="toast" role="alert"></div>
+<footer class="foot">
+  <img src="logo.png" width="40" height="40" alt="" decoding="async">
+  <div><b>Rajshahi Division Students Forum, SEU</b><span>&copy; <span id="yr" style="display:inline">2026</span> &middot; Southeast University</span><a class="flink" href="https://www.facebook.com/profile.php?id=61594226404207" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M24 12.07C24 5.4 18.63 0 12 0S0 5.4 0 12.07C0 18.1 4.39 23.1 10.13 24v-8.44H7.08v-3.49h3.05V9.41c0-3.02 1.79-4.7 4.53-4.7 1.31 0 2.69.24 2.69.24v2.97h-1.52c-1.49 0-1.96.93-1.96 1.89v2.26h3.33l-.53 3.49h-2.8V24C19.61 23.1 24 18.1 24 12.07z"/></svg>Official Facebook Page</a></div>
+</footer>
+
+<div class="toasts" id="toasts" aria-live="polite"></div>
 
 <script>
 (function () {
   // ====== PASTE YOUR GOOGLE APPS SCRIPT WEB APP URL HERE ======
-  var SCRIPT_URL = "https://script.google.com/macros/s/AKfycby8iKw_3dw6DnkCm6FvnXHzTFLy2kO43alGiMlw4DO8_-swKonkOeHWuPKwz1nMI5sI";
+  var SCRIPT_URL = "";
   // ============================================================
 
   var $ = function (id) { return document.getElementById(id); };
   var FIELDS = ["name", "email", "phone", "district", "sid", "dept", "fb"];
   var serverErr = {};   // errors reported by the server (duplicates)
   var checkSeq = 0;
+
+  try { $("yr").textContent = Math.max(2026, new Date().getFullYear()); } catch (e) {}
+
+  // hide a logo image cleanly if the file is missing
+  Array.prototype.forEach.call(document.querySelectorAll('img[src="logo.png"]'), function (img) {
+    img.addEventListener("error", function () { img.style.visibility = "hidden"; });
+  });
 
   function clean(id) { return $(id).value.trim(); }
   function normPhone(v) {
@@ -168,10 +276,23 @@ button.sub:disabled{opacity:.65;cursor:wait}
     if (type) f.classList.add(type);
     f.querySelector(".msg").textContent = text || "";
   }
-  function toast(t) {
-    var e = $("toast"); e.textContent = t; e.style.display = "block";
-    clearTimeout(toast.t); toast.t = setTimeout(function () { e.style.display = "none"; }, 3500);
+  function notify(type, title, msg) {
+    var host = $("toasts");
+    var el = document.createElement("div");
+    el.className = "note " + type;
+    el.setAttribute("role", type === "error" ? "alert" : "status");
+    el.innerHTML = '<div class="ico">' + (type === "success" ? "✓" : "!") + '</div><div class="txt"><b></b><span></span></div><button type="button" aria-label="Close">×</button><i class="bar"></i>';
+    el.querySelector("b").textContent = title;
+    el.querySelector("span").textContent = msg;
+    var ms = type === "success" ? 7000 : 5500;
+    el.querySelector(".bar").style.animationDuration = ms + "ms";
+    var timer = setTimeout(close, ms);
+    function close() { clearTimeout(timer); if (el.parentNode) el.parentNode.removeChild(el); }
+    el.querySelector("button").addEventListener("click", close);
+    host.appendChild(el);
+    while (host.children.length > 3) host.removeChild(host.firstChild);
   }
+  function toast(t) { notify("error", "Please check", t); }
 
   // Local (format) validation – returns an error string or ""
   var rules = {
@@ -240,6 +361,26 @@ button.sub:disabled{opacity:.65;cursor:wait}
   $("sid").addEventListener("input", function () { this.value = this.value.replace(/\D/g, "").slice(0, 13); });
   $("phone").addEventListener("input", function () { this.value = this.value.replace(/[^\d+]/g, ""); });
 
+  // ---- thank-you panel ----
+  function scrollTop() {
+    var calm = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    try { window.scrollTo({ top: 0, behavior: calm ? "auto" : "smooth" }); } catch (e) { window.scrollTo(0, 0); }
+  }
+  function showThanks(name, email) {
+    $("thanksName").textContent = name;
+    $("thanksMail").textContent = email;
+    $("form").hidden = true;
+    $("thanks").hidden = false;
+    scrollTop();
+    try { $("thanks").focus({ preventScroll: true }); } catch (e) {}
+  }
+  $("again").addEventListener("click", function () {
+    $("thanks").hidden = true;
+    $("form").hidden = false;
+    scrollTop();
+    $("name").focus({ preventScroll: true });
+  });
+
   // ---- submit ----
   $("form").addEventListener("submit", function (e) {
     e.preventDefault();
@@ -260,31 +401,46 @@ button.sub:disabled{opacity:.65;cursor:wait}
       website: clean("website")
     };
 
+    function done() { btn.disabled = false; btn.textContent = "Submit Application"; }
+    function success() {
+      $("form").reset(); serverErr = {};
+      FIELDS.forEach(function (id) { setState(id, "", ""); });
+      showThanks(payload.name, payload.email);
+    }
+
     // text/plain body avoids a CORS preflight with Apps Script
     fetch(SCRIPT_URL, { method: "POST", body: JSON.stringify(payload) })
-      .then(function (r) { return r.json(); })
-      .then(function (res) {
+      .then(function (r) { return r.text(); })
+      .then(function (t) {
+        var res;
+        try { res = JSON.parse(t); } catch (x) { var er = new Error("Server did not return JSON"); er.body = t.slice(0, 300); throw er; }
         if (res && res.ok) {
-          $("mname").textContent = "Thank you, " + payload.name + "!";
-          $("modal").classList.add("on");
-          $("form").reset(); serverErr = {};
-          FIELDS.forEach(function (id) { setState(id, "", ""); });
+          success();
         } else if (res && res.errors) {
           var first = null;
           Object.keys(res.errors).forEach(function (k) {
             serverErr[k] = res.errors[k]; setState(k, "bad", res.errors[k]); if (!first) first = k;
           });
           if (first && $(first)) $(first).focus();
-          toast("Some details need your attention.");
+          notify("error", "Already registered or invalid", "Some details need your attention.");
         } else {
-          toast((res && res.message) || "Something went wrong. Please try again.");
+          notify("error", "Submission failed", (res && res.message) || "Something went wrong. Please try again.");
         }
       })
-      .catch(function () { toast("Network error. Check your connection and try again."); })
-      .then(function () { btn.disabled = false; btn.textContent = "Submit Application"; });
+      .catch(function (err) {
+        console.error("Submit failed:", err, err && err.body);
+        // The response may be unreadable even though the data was saved: confirm with the server.
+        return api("action=check&email=" + encodeURIComponent(payload.email))
+          .then(function (chk) {
+            if (chk && chk.errors && chk.errors.email) success();
+            else notify("error", "Could not submit", "We could not reach the server. Please try again in a moment.");
+          })
+          .catch(function () {
+            notify("error", "Could not submit", "We could not reach the server. Please check your connection and try again.");
+          });
+      })
+      .then(done);
   });
-
-  $("ok").addEventListener("click", function () { $("modal").classList.remove("on"); });
 })();
 </script>
 </body>
