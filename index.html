@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0f7a4a">
+<title>Membership Form – Rajshahi Division Student Forum, SEU</title>
+<style>
+:root{box-sizing:border-box;--bg:#f3f7f4;--card:#fff;--ink:#14231a;--mut:#5b6b61;--line:#d5e0d9;--pri:#0f7a4a;--pri2:#0a5c37;--err:#c62828;--ok:#1b8a4f;--soft:#e4f3ea;--gap:clamp(12px,2vw,18px);color-scheme:light}
+@media (prefers-color-scheme:dark){:root{--bg:#0e1612;--card:#16221b;--ink:#e8f2ec;--mut:#9bb0a3;--line:#2b3d33;--pri:#2fb877;--pri2:#23a066;--err:#ff7b7b;--ok:#5fd596;--soft:#1c3126;color-scheme:dark}}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%;scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;min-height:100vh;min-height:100dvh;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;line-height:1.5;padding-left:env(safe-area-inset-left,0px);padding-right:env(safe-area-inset-right,0px);overflow-wrap:anywhere}
+header{background:linear-gradient(135deg,#0a5c37,#0f7a4a);color:#fff;text-align:center;padding:calc(clamp(24px,5vw,56px) + env(safe-area-inset-top,0px)) 16px clamp(56px,8vw,88px)}
+header h1{margin:0 auto 6px;max-width:22ch;font-size:clamp(1.35rem,2.6vw + .9rem,2.4rem);line-height:1.2}
+header p{margin:0;opacity:.92;font-size:clamp(.9rem,.5vw + .8rem,1.1rem)}
+.badge{display:inline-block;background:rgba(255,255,255,.18);padding:3px 14px;border-radius:99px;font-size:.8rem;margin-bottom:10px}
+main{width:100%;max-width:760px;margin:clamp(-48px,-6vw,-32px) auto 0;padding:0 clamp(10px,3vw,24px) calc(32px + env(safe-area-inset-bottom,0px))}
+.card{background:var(--card);border:1px solid var(--line);border-radius:clamp(14px,2vw,20px);padding:clamp(16px,4vw,36px);box-shadow:0 8px 28px rgba(0,0,0,.09)}
+.sec{font-weight:600;color:var(--pri);margin:6px 0 14px;border-bottom:2px solid var(--soft);padding-bottom:6px;font-size:clamp(1rem,.4vw + .95rem,1.15rem)}
+.sec.gap{margin-top:clamp(20px,3vw,30px)}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--gap)}
+.f{display:flex;flex-direction:column;gap:4px;min-width:0}
+.f.full{grid-column:1/-1}
+label{font-size:.9rem;font-weight:500}
+label i{color:var(--err);font-style:normal}
+input,select{font:inherit;font-size:16px;min-height:48px;min-width:0;padding:11px 12px;border:1.5px solid var(--line);border-radius:10px;background:var(--bg);color:var(--ink);width:100%;max-width:100%;text-overflow:ellipsis;-webkit-appearance:none;appearance:none}
+select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%2373877b' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;padding-right:38px}
+input:focus-visible,select:focus-visible{outline:none;border-color:var(--pri);box-shadow:0 0 0 3px var(--soft)}
+.f.bad input,.f.bad select{border-color:var(--err)}
+.f.good input{border-color:var(--ok)}
+.msg{font-size:.8rem;min-height:1.2em;color:var(--mut)}
+.f.bad .msg{color:var(--err)}
+.f.good .msg{color:var(--ok)}
+.hp{position:absolute;left:-9999px;opacity:0;height:0;width:0}
+button.sub{display:block;margin:20px auto 0;width:100%;min-height:52px;padding:13px 24px;border:0;border-radius:12px;background:var(--pri);color:#fff;font:inherit;font-weight:600;font-size:1.05rem;cursor:pointer;-webkit-tap-highlight-color:transparent}
+button.sub:disabled{opacity:.65;cursor:wait}
+.modal{position:fixed;inset:0;background:rgba(0,0,0,.55);display:none;align-items:center;justify-content:center;padding:16px;z-index:20;overflow-y:auto}
+.modal.on{display:flex}
+.box{background:var(--card);border-radius:18px;padding:clamp(20px,5vw,32px) clamp(18px,4vw,28px);max-width:400px;width:100%;max-height:calc(100dvh - 32px);overflow-y:auto;text-align:center;animation:pop .25s ease}
+@keyframes pop{from{transform:scale(.92);opacity:0}to{transform:scale(1);opacity:1}}
+.tick{width:64px;height:64px;border-radius:50%;background:var(--pri);color:#fff;font-size:34px;line-height:64px;margin:0 auto 12px}
+.box h2{margin:0 0 6px;font-size:1.3rem}
+.box p{margin:4px 0;color:var(--mut);font-size:.95rem}
+.box button{margin-top:16px;min-height:46px;padding:10px 32px;border:0;border-radius:10px;background:var(--pri);color:#fff;font:inherit;cursor:pointer}
+.toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--err);color:#fff;padding:10px 18px;border-radius:10px;font-size:.92rem;display:none;z-index:30;width:max-content;max-width:calc(100% - 28px);text-align:center}
+
+/* Phones: single column */
+@media (max-width:599px){
+  .grid{grid-template-columns:minmax(0,1fr)}
+  .f.full{grid-column:auto}
+}
+/* Tablets and up: submit button no longer full width */
+@media (min-width:600px){
+  button.sub{width:auto;min-width:260px}
+}
+/* Small laptops / large tablets */
+@media (min-width:900px){
+  main{max-width:840px}
+}
+/* Desktops */
+@media (min-width:1200px){
+  main{max-width:920px}
+  header h1{max-width:none}
+}
+/* Short landscape phones */
+@media (max-height:480px) and (orientation:landscape){
+  header{padding-top:calc(16px + env(safe-area-inset-top,0px));padding-bottom:56px}
+  .tick{width:48px;height:48px;line-height:48px;font-size:26px}
+}
+/* Mouse devices only */
+@media (hover:hover){
+  button.sub:hover,.box button:hover{background:var(--pri2)}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="badge">Southeast University</div>
+  <h1>Rajshahi Division Student Forum, SEU</h1>
+  <p>Membership Application Form</p>
+</header>
+
+<main>
+  <form class="card" id="form" novalidate autocomplete="off">
+    <div class="sec">Personal Information</div>
+    <div class="grid">
+      <div class="f full"><label for="name">Full Name <i>*</i></label><input id="name" maxlength="60" placeholder="Your full name" autocomplete="name"><div class="msg"></div></div>
+      <div class="f"><label for="email">Email Address <i>*</i></label><input id="email" type="email" maxlength="100" placeholder="example@gmail.com" autocomplete="email"><div class="msg"></div></div>
+      <div class="f"><label for="phone">Phone Number <i>*</i></label><input id="phone" type="tel" inputmode="numeric" maxlength="14" placeholder="01XXXXXXXXX" autocomplete="tel"><div class="msg"></div></div>
+      <div class="f"><label for="gender">Gender</label>
+        <select id="gender"><option value="">Select (optional)</option><option>Male</option><option>Female</option><option>Other</option></select><div class="msg"></div></div>
+      <div class="f"><label for="blood">Blood Group</label>
+        <select id="blood"><option value="">Select (optional)</option><option>A+</option><option>A-</option><option>B+</option><option>B-</option><option>AB+</option><option>AB-</option><option>O+</option><option>O-</option></select><div class="msg"></div></div>
+    </div>
+
+    <div class="sec gap">Address (Rajshahi Division)</div>
+    <div class="grid">
+      <div class="f"><label for="district">District <i>*</i></label>
+        <select id="district"><option value="">Select district</option>
+          <option>Bogura</option><option>Chapainawabganj</option><option>Joypurhat</option><option>Naogaon</option><option>Natore</option><option>Pabna</option><option>Rajshahi</option><option>Sirajganj</option>
+        </select><div class="msg"></div></div>
+      <div class="f"><label for="upazila">Upazila / Thana</label><input id="upazila" maxlength="60" placeholder="Your upazila"><div class="msg"></div></div>
+    </div>
+
+    <div class="sec gap">Southeast University Information</div>
+    <div class="grid">
+      <div class="f"><label for="sid">Student ID <i>*</i></label><input id="sid" inputmode="numeric" maxlength="13" placeholder="13-digit student ID"><div class="msg"></div></div>
+      <div class="f"><label for="dept">Department <i>*</i></label>
+        <select id="dept"><option value="">Select department</option>
+          <option>Architecture</option>
+          <option>Bangla</option>
+          <option>Business Administration (BBA)</option>
+          <option>Computer Science &amp; Engineering (CSE)</option>
+          <option>Economics</option>
+          <option>Electrical &amp; Electronic Engineering (EEE)</option>
+          <option>English</option>
+          <option>Information &amp; Communication Technology (ICT)</option>
+          <option>Law</option>
+          <option>Pharmacy</option>
+          <option>Software Engineering</option>
+          <option>Textile Engineering</option>
+        </select><div class="msg"></div></div>
+      <div class="f"><label for="batch">Batch / Semester</label><input id="batch" maxlength="30" placeholder="e.g. 45th Batch"><div class="msg"></div></div>
+      <div class="f"><label for="fb">Facebook Profile Link</label><input id="fb" type="url" maxlength="200" placeholder="https://facebook.com/your.profile"><div class="msg"></div></div>
+    </div>
+
+    <input class="hp" id="website" name="website" tabindex="-1" aria-hidden="true" autocomplete="off">
+    <button class="sub" id="btn" type="submit">Submit Application</button>
+  </form>
+</main>
+
+<div class="modal" id="modal" role="dialog" aria-modal="true"><div class="box">
+  <div class="tick">✓</div>
+  <h2>Form submitted successfully!</h2>
+  <p id="mname"></p>
+  <p>A confirmation email has been sent to your inbox.</p>
+  <button id="ok" type="button">Done</button>
+</div></div>
+<div class="toast" id="toast" role="alert"></div>
+
+<script>
+(function () {
+  // ====== PASTE YOUR GOOGLE APPS SCRIPT WEB APP URL HERE ======
+  var SCRIPT_URL = "";
+  // ============================================================
+
+  var $ = function (id) { return document.getElementById(id); };
+  var FIELDS = ["name", "email", "phone", "district", "sid", "dept", "fb"];
+  var serverErr = {};   // errors reported by the server (duplicates)
+  var checkSeq = 0;
+
+  function clean(id) { return $(id).value.trim(); }
+  function normPhone(v) {
+    var d = v.replace(/\D/g, "");
+    if (d.indexOf("880") === 0) d = "0" + d.slice(3);
+    if (d.length === 10 && d.charAt(0) === "1") d = "0" + d;
+    return d;
+  }
+  function normSid(v) { return v.replace(/\D/g, ""); }
+
+  function setState(id, type, text) {
+    var f = $(id).closest(".f");
+    f.classList.remove("bad", "good");
+    if (type) f.classList.add(type);
+    f.querySelector(".msg").textContent = text || "";
+  }
+  function toast(t) {
+    var e = $("toast"); e.textContent = t; e.style.display = "block";
+    clearTimeout(toast.t); toast.t = setTimeout(function () { e.style.display = "none"; }, 3500);
+  }
+
+  // Local (format) validation – returns an error string or ""
+  var rules = {
+    name: function (v) {
+      v = v.replace(/\s+/g, " ");
+      if (!v) return "Full name is required.";
+      return /^[A-Za-z][A-Za-z .'\-]{2,59}$/.test(v) ? "" : "Use English letters only (min 3 characters).";
+    },
+    email: function (v) {
+      if (!v) return "Email is required.";
+      return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v) ? "" : "Enter a valid email address.";
+    },
+    phone: function (v) {
+      if (!v) return "Phone number is required.";
+      return /^01[3-9]\d{8}$/.test(normPhone(v)) ? "" : "Enter a valid 11-digit number (01XXXXXXXXX).";
+    },
+    district: function (v) { return v ? "" : "Please select your district."; },
+    sid: function (v) {
+      if (!v) return "Student ID is required.";
+      return /^\d{13}$/.test(v) ? "" : "Student ID must be exactly 13 digits.";
+    },
+    dept: function (v) { return v ? "" : "Please select your department."; },
+    fb: function (v) {
+      return !v || /^https?:\/\/(www\.|m\.)?(facebook|fb)\.com\/.+/i.test(v) ? "" : "Enter a valid Facebook link.";
+    }
+  };
+
+  function validateField(id) {
+    var v = clean(id);
+    var m = rules[id](v);
+    if (!m && serverErr[id]) m = serverErr[id];
+    if (m) { setState(id, "bad", m); return false; }
+    setState(id, v ? "good" : "", v && (id === "email" || id === "phone" || id === "sid") ? "Looks good." : "");
+    return true;
+  }
+
+  // ---- live duplicate check (email / phone / student ID) ----
+  function api(params) {
+    return fetch(SCRIPT_URL + "?" + params).then(function (r) { return r.json(); });
+  }
+  function liveCheck(id) {
+    if (!SCRIPT_URL) return Promise.resolve();
+    if (rules[id](clean(id))) return Promise.resolve();
+    var seq = ++checkSeq;
+    var q = "action=check&" + (id === "email" ? "email=" + encodeURIComponent(clean(id).toLowerCase())
+          : id === "phone" ? "phone=" + encodeURIComponent(normPhone(clean(id)))
+          : "sid=" + encodeURIComponent(normSid(clean(id))));
+    setState(id, "", "Checking availability…");
+    return api(q).then(function (res) {
+      if (seq !== checkSeq && false) return;
+      delete serverErr[id];
+      if (res && res.errors && res.errors[id]) serverErr[id] = res.errors[id];
+      validateField(id);
+    }).catch(function () { setState(id, "", ""); });
+  }
+
+  ["email", "phone", "sid"].forEach(function (id) {
+    $(id).addEventListener("blur", function () { if (validateField(id)) liveCheck(id); });
+    $(id).addEventListener("input", function () { delete serverErr[id]; });
+  });
+  FIELDS.forEach(function (id) {
+    if (id === "email" || id === "phone" || id === "sid") return;
+    $(id).addEventListener("blur", function () { validateField(id); });
+    $(id).addEventListener("change", function () { validateField(id); });
+  });
+  $("sid").addEventListener("input", function () { this.value = this.value.replace(/\D/g, "").slice(0, 13); });
+  $("phone").addEventListener("input", function () { this.value = this.value.replace(/[^\d+]/g, ""); });
+
+  // ---- submit ----
+  $("form").addEventListener("submit", function (e) {
+    e.preventDefault();
+    var firstBad = null;
+    FIELDS.forEach(function (id) { if (!validateField(id) && !firstBad) firstBad = id; });
+    if (firstBad) { $(firstBad).focus(); toast("Please fix the highlighted fields."); return; }
+    if (!SCRIPT_URL) { toast("SCRIPT_URL is not set in index.html yet."); return; }
+
+    var btn = $("btn"); btn.disabled = true; btn.textContent = "Submitting…";
+    var payload = {
+      name: clean("name").replace(/\s+/g, " "),
+      email: clean("email").toLowerCase(),
+      phone: normPhone(clean("phone")),
+      gender: clean("gender"), blood: clean("blood"),
+      district: clean("district"), upazila: clean("upazila"),
+      sid: normSid(clean("sid")), dept: clean("dept"),
+      batch: clean("batch"), fb: clean("fb"),
+      website: clean("website")
+    };
+
+    // text/plain body avoids a CORS preflight with Apps Script
+    fetch(SCRIPT_URL, { method: "POST", body: JSON.stringify(payload) })
+      .then(function (r) { return r.json(); })
+      .then(function (res) {
+        if (res && res.ok) {
+          $("mname").textContent = "Thank you, " + payload.name + "!";
+          $("modal").classList.add("on");
+          $("form").reset(); serverErr = {};
+          FIELDS.forEach(function (id) { setState(id, "", ""); });
+        } else if (res && res.errors) {
+          var first = null;
+          Object.keys(res.errors).forEach(function (k) {
+            serverErr[k] = res.errors[k]; setState(k, "bad", res.errors[k]); if (!first) first = k;
+          });
+          if (first && $(first)) $(first).focus();
+          toast("Some details need your attention.");
+        } else {
+          toast((res && res.message) || "Something went wrong. Please try again.");
+        }
+      })
+      .catch(function () { toast("Network error. Check your connection and try again."); })
+      .then(function () { btn.disabled = false; btn.textContent = "Submit Application"; });
+  });
+
+  $("ok").addEventListener("click", function () { $("modal").classList.remove("on"); });
+})();
+</script>
+</body>
+</html>
